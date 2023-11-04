@@ -11,7 +11,9 @@ pipeline {
         stage('Buil') {
             steps {
                 echo 'Building Docker Image..'
-                sudo docker build -t $D_IMG_NAME:$D_IMG_TAG .
+                script {
+                    sh 'docker build -t ${D_IMG_NAME}:${D_IMG_TAG} .'
+                }
             }
         }
         stage('Test') {
