@@ -13,7 +13,7 @@ pipeline {
                 echo 'Building Docker Image..'
                 script {
                     sh "docker build -t ${D_IMG_NAME}:${D_IMG_TAG} ."
-                    sh "sudo docker version"
+                    sh "docker version"
                 }
             }
         }
