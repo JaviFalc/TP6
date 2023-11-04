@@ -1,7 +1,7 @@
 pipeline {
     agent any
 
-    enviroment {
+    environment {
         D_IMG_NAME = 'devops-mysql'
         D_IMG_TAG = '0.0.1'
     }
