@@ -1,4 +1,4 @@
-FROM Dcoker:alpine
+FROM alpine:latest
 FROM mysql
 VOLUME /var/lib/mysql
 ENV MYSQL_ROOT_PASSWORD=password MYSQL_DATABASE=hospital   
