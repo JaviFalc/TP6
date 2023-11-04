@@ -12,7 +12,7 @@ pipeline {
             steps {
                 echo 'Building Docker Image..'
                 script {
-                    sh 'docker build -t ${D_IMG_NAME}:${D_IMG_TAG} .'
+                    docker build -t ${D_IMG_NAME}:${D_IMG_TAG} .
                 }
             }
         }
