@@ -1,10 +1,19 @@
 pipeline {
     agent any
 
+    enviroment {
+        D_IMG_NAME = 'devops-mysql'
+        D_IMG_TAG = '0.0.1'
+    }
+    
+
     stages {
-        stage('Build') {
+        stage('Buil') {
             steps {
-                echo 'Building..'
+                echo 'Building Docker Image..'
+                script {
+                    build -t \$D_IMG_NAME:\$D_IMG_TAG .
+                }
             }
         }
         stage('Test') {
