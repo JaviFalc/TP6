@@ -21,7 +21,7 @@ pipeline {
                     sh "docker pull ${D_IMG_NAME}:${D_IMG_TAG}"
                     sh "docker build -t ${D_IMG_NAME}:${D_IMG_TAG} ."
                     sh "docker run -d --rm -p ${CONT_PORT} --name ${DCONT_NAME} -v ${D_IMG_VOL} ${D_IMG_NAME}:${D_IMG_TAG}"
-                    SH "docker ps"
+                    sh "docker ps"
                 }
             }
         }
