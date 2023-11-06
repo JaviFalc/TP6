@@ -2,7 +2,9 @@ pipeline {
     agent any
 
     environment {
-        D_IMG_NAME = 'devops-mysql'
+        DHUB_NAME = 'falcojx2'
+        DHUB_TOKEN = 'dckr_pat__gO5wz-tfLB8qHNNtk6GW6yAQGk'
+        D_IMG_NAME = 'falcojx2/devops-mysql'
         D_IMG_TAG = '0.0.1'
     }
     
@@ -12,8 +14,9 @@ pipeline {
             steps {
                 echo 'Building Docker Image..'
                 script {
+                    sh "docker login --username ${DHUB_NAME}"
+                    sh "dcoker pull ${D_IMG_NAME}:${D_IMG_TAG}"
                     sh "docker build -t ${D_IMG_NAME}:${D_IMG_TAG} ."
-                    sh "docker version"
                 }
             }
         }
