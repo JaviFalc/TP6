@@ -20,8 +20,7 @@ pipeline {
                     sh "docker login --username ${DHUB_NAME} --password $DHUB_TOKEN"
                     sh "docker pull ${D_IMG_NAME}:${D_IMG_TAG}"
                     sh "docker build -t ${D_IMG_NAME}:${D_IMG_TAG} ."
-                    sh "docker run -d --rm -p ${CONT_PORT} --name ${DCONT_NAME} -v ${D_IMG_VOL} ${D_IMG_NAME}:${D_IMG_TAG}"
-                    sh "docker ps"
+                    
                     
                 }
             }
@@ -30,9 +29,8 @@ pipeline {
             steps {
                 echo 'Testing..'
                 script {
-                    sh "docker exec -it ${DCONT_NAME} mysql -ppassword"
-                    sh "use hospital;"
-                    sh "select * from EQUIPOS;"
+                    sh "docker run -d --rm -p ${CONT_PORT} --name ${DCONT_NAME} -v ${D_IMG_VOL} ${D_IMG_NAME}:${D_IMG_TAG}"
+                    sh "docker ps"
                 }
                 
             }
