@@ -19,9 +19,7 @@ pipeline {
                 script {
                     sh "docker login --username ${DHUB_NAME} --password $DHUB_TOKEN"
                     sh "docker pull ${D_IMG_NAME}:${D_IMG_TAG}"
-                    sh "docker build -t ${D_IMG_NAME}:${D_IMG_TAG} ."
-                    
-                    
+                    sh "docker build -t ${D_IMG_NAME}:${D_IMG_TAG} ."    
                 }
             }
         }
@@ -37,7 +35,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                echo 'Pushing Docker Image....'
                 script {
                     sh "docker login --username ${DHUB_NAME} --password $DHUB_TOKEN"
                     sh "docker push ${D_IMG_NAME}:${D_IMG_TAG}"
