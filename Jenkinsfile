@@ -27,6 +27,7 @@ pipeline {
             steps {
                 echo 'Testing..'
                 script {
+                    sh "chmod 777 MismoContenedor.sh"
                     sh "./MismoContenedor.sh"
                     sh "docker run -d --rm -p ${CONT_PORT} --name ${DCONT_NAME} -v ${D_IMG_VOL} ${D_IMG_NAME}:${D_IMG_TAG}"
                     sh "docker ps"
