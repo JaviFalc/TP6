@@ -15,7 +15,7 @@ pipeline {
                 echo 'Building Docker Image..'
                 script {
                     sh "docker login --username ${DHUB_NAME} --password $DHUB_TOKEN"
-                    sh "dcoker pull ${D_IMG_NAME}:${D_IMG_TAG}"
+                    sh "docker pull ${D_IMG_NAME}:${D_IMG_TAG}"
                     sh "docker build -t ${D_IMG_NAME}:${D_IMG_TAG} ."
                 }
             }
