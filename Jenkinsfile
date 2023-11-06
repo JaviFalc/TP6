@@ -6,7 +6,7 @@ pipeline {
         DHUB_TOKEN = 'dckr_pat__gO5wz-tfLB8qHNNtk6GW6yAQGk'
         D_IMG_NAME = 'falcojx2/devops-mysql'
         D_IMG_TAG = '0.0.1'
-        DCONT_NAME = tp7-mysql
+        DCONT_NAME = 'tp7-mysql'
         D_IMG_VOL = '/var/lib/mysql'
         CONT_PORT = '8765:8080'
     }
